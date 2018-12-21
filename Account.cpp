@@ -125,6 +125,6 @@ void ATM::transfer(Account& acc, int pass, Account& acc_tar, int ammount)
 	}
 }
 
-ATM::ATM(int ser_num) :ser_num_(ser_num);
+ATM::ATM(int ser_num) { ser_num_ = ser_num }
 
 ATM::~ATM(){};
