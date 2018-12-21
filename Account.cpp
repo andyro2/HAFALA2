@@ -66,3 +66,41 @@ void Account::update_balance(int money, char* password, int* balance)
 	else
 		cout << "Error <ATM ID>: Your transaction failed – password for account id <id> is incorrect";
 }
+int Account::get_password() {
+	return password_;
+}
+int Account::get_num() {
+	return num_;
+}
+int Account::get_balance() {
+	return balance_;
+}
+
+void Account::add_to_balance(int ammount) {
+	balance_ += ammount;
+	return;
+}
+void ATM::check_balance(Account& acc, int pass)
+{
+	if (acc.get_password() == pass)
+		cout << ser_num_ << ": Account " << acc.get_num() << " balance is " << acc.get_balance() << endl;
+	else
+		cout << "Error "<< ser_num_ << ": Your transaction failed - password for account id " << acc.get_num() << " is incorrect" << endl;
+}
+
+void ATM::transfer(Account& acc, int pass, Account& acc_tar, int ammount)
+{
+	if (acc.get_password() != pass) {
+		cout << "Error " << ser_num_ << ": Your transaction failed - password for account id " << acc.get_num() << " is incorrect" << endl;
+		return;
+	}
+	else if (ammount > acc.get_balance()) {
+		cout << "Error " << ser_num_ << ": Your transaction failed - password for account id " << acc_tar.get_num() << " balance is lower than " <<ammount<< endl;
+		return;
+	}
+	else {
+		withdraw(&acc, pass, ammount);
+		acc_tar.add_to_balance(ammount);
+		cout << ser_num_ << ": Transfer " << ammount << " from account " << acc.get_num << " to account " << acc_tar.get_num << " new account balance is " << acc.get_balance() << " new target account balance is " << acc_tar.get_balance() << endl;
+	}
+}

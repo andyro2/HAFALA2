@@ -23,6 +23,10 @@ public:
 	~Account();
 	Account(int num, char* password,int balance);
 	bool check_if_vip();
+	int get_password();
+	int get_num();
+	int get_balance();
+	void add_to_balance(int ammount);
 //	void upgrade_to_vip(char* password);
 //	void update_balance(int money, char* password, int* balance);
 
@@ -38,13 +42,17 @@ private:
 
 class ATM {
 public:
+	ATM(int ser_num);
+	~ATM();
 	void open_account(int ac_num, int pass, int in_ammount);
-	void make_vip(int ac_num, int pass);
-	void deposit(int ac_num, int pass, int ammount);
-	void withdraw(int ac_num, int pass, int ammount);
-	void transfer(int ac_num, int pass, int target, int ammount);
+	void make_vip(Account& acc, int pass);
+	void deposit(Account& acc, int pass, int ammount);
+	void withdraw(Account& acc, int pass, int ammount);
+	void check_balance(Account& acc, int pass);
+	void transfer(Account& acc, int pass, Account& acc_tar, int ammount);
+
 private:
-	int ser_num;
+	int ser_num_;
 };
 
 class Bank {
