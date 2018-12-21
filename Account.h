@@ -7,11 +7,14 @@
 #include <pthread.h>
 #include <semaphore.h>
 #include <string>
+#include <vector>
 
 
 using std::string;
+using std::vector;
 
 #define SIZE_PASSWORD 4
+#define NUM_OF_ATM 1
 
 class Account
 {
@@ -20,8 +23,8 @@ public:
 	~Account();
 	Account(int num, char* password,int balance);
 	bool check_if_vip();
-	void upgrade_to_vip(char* password);
-	void update_balance(int money, char* password, int* balance);
+//	void upgrade_to_vip(char* password);
+//	void update_balance(int money, char* password, int* balance);
 
 private:
 	int num_;
@@ -30,6 +33,28 @@ private:
 	bool vip_;
 
 };
+
+#define NUM_OF_ATM 1
+
+class ATM {
+public:
+	void open_account(int ac_num, int pass, int in_ammount);
+	void make_vip(int ac_num, int pass);
+	void deposit(int ac_num, int pass, int ammount);
+	void withdraw(int ac_num, int pass, int ammount);
+	void transfer(int ac_num, int pass, int target, int ammount);
+private:
+	int ser_num;
+};
+
+class Bank {
+private:
+	vector<Account> accounts;
+};
+
+
+#endif
+
 
 
 #endif
