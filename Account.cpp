@@ -14,7 +14,6 @@ Account::Account()
 
 Account::~Account() 
 {
-	delete[] password_;
 
 }
 
