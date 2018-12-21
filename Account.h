@@ -21,14 +21,15 @@ class Account
 public:
 	Account();
 	~Account();
-	Account(int num, char* password,int balance);
+	Account(int num, int password,int balance);
 	bool check_if_vip();
-//	void upgrade_to_vip(char* password);
-//	void update_balance(int money, char* password, int* balance);
+	void upgrade_to_vip(int password);
+    void deposit_balance(int money, int password, int* balance);
+	void witdraw_balance(int money, int password, int* balance);
 
 private:
 	int num_;
-	char* password_;
+	int password_;
 	int balance_;
 	bool vip_;
 
