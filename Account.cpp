@@ -104,3 +104,7 @@ void ATM::transfer(Account& acc, int pass, Account& acc_tar, int ammount)
 		cout << ser_num_ << ": Transfer " << ammount << " from account " << acc.get_num << " to account " << acc_tar.get_num << " new account balance is " << acc.get_balance() << " new target account balance is " << acc_tar.get_balance() << endl;
 	}
 }
+
+ATM::ATM(int ser_num) :ser_num_(ser_num);
+
+ATM::~ATM(){};
