@@ -22,12 +22,18 @@ public:
 	~Account();
 	Account(int num, int password,int balance);
 	bool check_if_vip();
+<<<<<<< HEAD
 	void upgrade_to_vip(int password);
     void deposit_balance(int money, int password, int* balance);
 	void witdraw_balance(int money, int password, int* balance);
-	int get_num();
+=======
 	int get_password();
+	int get_num();
 	int get_balance();
+	void add_to_balance(int ammount);
+//	void upgrade_to_vip(char* password);
+//	void update_balance(int money, char* password, int* balance);
+>>>>>>> c48d51a1ad77f7300def49935bdef19085bdb30b
 
 private:
 	int num_;
@@ -37,6 +43,28 @@ private:
 
 };
 
+<<<<<<< HEAD
+#define NUM_OF_ATM 1
+
+class ATM {
+public:
+	void open_account(int ac_num, int pass, int in_ammount);
+	void make_vip(int ac_num, int pass);
+	void deposit(int ac_num, int pass, int ammount);
+	void withdraw(int ac_num, int pass, int ammount);
+	void transfer(int ac_num, int pass, int target, int ammount);
+private:
+	int ser_num;
+};
+
+class Bank {
+private:
+	vector<Account> accounts;
+};
+
+
+#endif
+=======
 #define NUM_OF_ATM 1
 
 class ATM {
@@ -48,7 +76,8 @@ public:
 	void deposit(Account& acc, int pass, int ammount);
 	void withdraw(Account& acc, int pass, int ammount);
 	void check_balance(Account& acc, int pass);
-	void transfer(Account& acc, int pass, Account& acc_tar, int ammount)
+	void transfer(Account& acc, int pass, Account& acc_tar, int ammount);
+
 private:
 	int ser_num_;
 };
@@ -63,4 +92,8 @@ private:
 
 
 #endif
+>>>>>>> c48d51a1ad77f7300def49935bdef19085bdb30b
 
+
+
+#endif
