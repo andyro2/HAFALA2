@@ -9,8 +9,7 @@
 #include <string>
 #include <vector>
 
-
-using std::string;
+using namespace std;
 using std::vector;
 
 #define SIZE_PASSWORD 4
@@ -55,6 +54,9 @@ private:
 };
 
 class Bank {
+	Bank();
+	~Bank();
+	void add_account(int ac_num, int pass, int in_ammount);
 private:
 	vector<Account> accounts;
 };
